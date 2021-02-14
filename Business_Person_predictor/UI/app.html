@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Person Classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./dropzone.min.css">
+    <link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-center">
+        <a class="navbar-brand" href="#"><b>Business Person Classifier</b></a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col card-wrapper"   data-player="elon_musk">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/em.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Elon Musk</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>            
+            <div class="col card-wrapper" data-player="ginni_rometty">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="./images/gr.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body text-center mt-4">
+                            <h4 class="text-uppercase card-title">Ginni Rometty</h4>
+                            </p>
+                        </div>
+                    </div>
+            </div> 
+                       
+            <div class="col card-wrapper" data-player="gwynne_shotwell">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="./images/gs.jpg" alt="Card image cap">
+                        </div>
+                        <div class="card-body text-center mt-4">
+                            <h4 class="text-uppercase card-title">Gwynne Shotwell</h4>
+                            </p>
+                        </div>
+                    </div>
+            </div>          
+
+            <div class="col card-wrapper" data-player="lynda_weinman">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/lw.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Lynda Weinman</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>      
+        </div>   
+        <div class="row">
+             <div class="col card-wrapper" data-player="marissa_mayer">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/mm.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Marissa Mayer</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col card-wrapper" data-player="meg_whitman">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/mw.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Meg Whitman</h4>
+                        </p>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="col card-wrapper" data-player="sheryl_sandberg">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/ss.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Sheryl Sandberg</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>  
+
+            <div class="col card-wrapper" data-player="susan_wojcicki">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="./images/sw.jpg" alt="Card image cap">
+                    </div>
+                    <div class="card-body text-center mt-4">
+                        <h4 class="text-uppercase card-title">Susan Wojcicki</h4>
+                        </p>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <form action="/file-upload" class="dropzone" id="dropzone">
+                            <div class="dz-message needsclick">
+                                <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                                <span class="note needsclick">Drop files here or click to upload</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3 mx-auto">
+                        <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-8 error" id="error" >
+                <p>Can't classify image. Classifier was not able to detect face and two eyes properly</p>    
+            </div>
+
+            <div class="col-sm-4" id="resultHolder">
+            </div>
+            <div class="col-sm-4" id="divClassTable">
+                <table id="classTable">
+                        <tr>
+                            <th>Business Person</th>
+                            <th>Probability Score</th>
+                        </tr>
+                        <tr>
+                            <td>Elon Musk</td>
+                            <td id="score_elon_musk"></td>
+                        </tr>
+                        <tr>
+                            <td>Ginni Rometty</td>
+                            <td id="score_ginni_rometty"></td>
+                        </tr>
+                        <tr>
+                            <td>Gwynne Shotwell</td>
+                            <td id="score_gwynne_shotwell"></td>
+                        </tr>
+                        <tr>
+                            <td>Lynda Weinman</td>
+                            <td id="score_lynda_weinman"></td>
+                        </tr>
+                        <tr>
+                            <td>Marissa Mayer</td>
+                            <td id="score_marissa_mayer"></td>
+                        </tr>
+                        <tr>
+                            <td>Meg Whitman</td>
+                            <td id="score_meg_whitman"></td>
+                        </tr>
+                        <tr>
+                            <td>Sheryl Sandberg</td>
+                            <td id="score_sheryl_sandberg"></td>
+                        </tr>
+                        <tr>
+                            <td>Susan Wojcicki</td>
+                            <td id="score_susan_wojcicki"></td>
+                        </tr>
+                </table>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="./dropzone.min.js"></script>
+<script src="./app.js"></script>
+</html>
